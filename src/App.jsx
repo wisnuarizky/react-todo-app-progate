@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Todos from './components/Todos';
+import TodoForm from './components/TodoForm';
 
 const datas = [
   {
@@ -56,9 +57,26 @@ function App() {
     setTodos(deleteTodo);
   }
 
+  // menambah todo
+  function addTodo(title) {
+    if (title === '') {
+      return;
+    }
+
+    const newTodo = {
+      id: todos.length + 1,
+      title: title,
+      completed: false,
+    };
+
+    const updateTodo = [...todos, newTodo];
+    setTodos(updateTodo);
+  }
+
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>My TODO List</h1>
+      <TodoForm addTodo={addTodo} />
       <Todos todos={todos} toggleCompleted={toggleCompleted} handleDelete={handleDelete} />
     </div>
   );
