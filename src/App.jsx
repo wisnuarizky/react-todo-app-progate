@@ -45,10 +45,21 @@ function App() {
     setTodos(updateTodos);
   }
 
+  // menghapus todo
+  function handleDelete(id) {
+    const deleteTodo = todos.filter((todo) => {
+      if (todo.id !== id) {
+        return todo;
+      }
+    });
+
+    setTodos(deleteTodo);
+  }
+
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>My TODO List</h1>
-      <Todos todos={todos} toggleCompleted={toggleCompleted} />
+      <Todos todos={todos} toggleCompleted={toggleCompleted} handleDelete={handleDelete} />
     </div>
   );
 }
