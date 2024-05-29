@@ -24,10 +24,10 @@ function App() {
   const [todos, setTodos] = useState(datas);
 
   return (
-    <>
-      <h1>Hello World</h1>
+    <div style={{ textAlign: 'center', padding: '12px' }}>
+      <h1 style={{ fontSize: '36px' }}>My TODO List</h1>
       <Todos todos={todos} />
-    </>
+    </div>
   );
 }
 
